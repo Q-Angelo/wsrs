@@ -31,7 +31,5 @@ wsrs -d /usr # 设置根目录为 /usr
 ### 例子
 
 ```
-
 wsrs -p 8080 -h localhost -d /usr
-
 ```
