@@ -22,7 +22,6 @@ module.exports = async function (req, res, filePath, config) {
         if(stats.isFile()){
             const contentType = mime(filePath);
             res.statusCode = 200;
-            console.info('Content-Type', contentType, filePath);
             res.setHeader('Content-Type', contentType);
 
             if(isFresh(stats, req, res)){

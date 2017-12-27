@@ -25,7 +25,6 @@ wsrs -p 8080 # 设置端口号为 8080
 wsrs -h localhost # 设置 host 为 localhost
 
 wsrs -d /usr # 设置根目录为 /usr
-
 ```
 
 ### 例子

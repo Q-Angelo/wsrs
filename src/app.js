@@ -19,7 +19,7 @@ class Server{
 		});
 		
 		server.listen(config.port, config.http, () => {
-			const addr = `${config.host}:${config.port}`;
+			const addr = `http://${config.host}:${config.port}`;
 			
 			console.info(`server started at ${chalk.green(addr)}`);
 
