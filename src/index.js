@@ -1,5 +1,6 @@
 const yargs = require('yargs');
 const App = require('./app');
+const os = require('os');
 
 const argv = yargs
     .usage('swrs [options]')
@@ -16,7 +17,7 @@ const argv = yargs
     .option('d', {
         alias: 'root',
         describe: 'root path',
-        default: process.cwd(),
+        default: os.homedir(),
     })
     .version()
     .alias('v', 'version')

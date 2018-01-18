@@ -9,6 +9,7 @@ const mime = require('./mime');
 const compress = require('./compress');
 const range = require('./range');
 const isFresh = require('./cache');
+const mapper = require('./mapper');
 
 //使用绝对路径
 const tplPath = path.join(__dirname, '../template/dir.tpl');
@@ -51,14 +52,14 @@ module.exports = async function (req, res, filePath, config) {
             const data = {
                 title: path.basename(filePath), //当前文件的路径
                 dir: dir ? `/${dir}` : '', //加上相对网站的根路径
-                files,
+                files: mapper.fileNameMapper(files),
             }
             res.statusCode = 200;
             res.setHeader('Content-Type', 'text/html');
             res.end(template(data));
         }
     }catch(ex){
-        console.error(ex);
+        console.error(JSON.stringify(ex));
 
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain');
